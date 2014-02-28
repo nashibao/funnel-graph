@@ -1,6 +1,8 @@
 
 # funnel-graph
 
+![image](https://raw.github.com/nashibao/funnel-graph/master/video.gif)
+
 ## License
 
   The MIT License (MIT)
