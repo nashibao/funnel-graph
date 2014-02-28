@@ -1,0 +1,19 @@
+{
+  "name": "funnel-graph",
+  "repo": "github/funnel-graph",
+  "description": "",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "lodash/lodash": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "src/funnel.js",
+  "scripts": [
+    "src/funnel.js"
+  ],
+  "styles": [
+    "src/funnel.css"
+  ]
+}
