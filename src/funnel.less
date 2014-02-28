@@ -1,0 +1,310 @@
+
+// https://gist.github.com/Daniel15/2549243
+.rgba(@color,@alpha){
+  @rgba: rgba(red(@color),green(@color),blue(@color),@alpha);
+  @argb: argb(@rgba);
+  background-color: @color;
+  background-color: @rgba;
+  filter: ~'progid:DXImageTransform.Microsoft.gradient(startColorstr=@{argb}, endColorstr=@{argb})';
+  -ms-filter: ~'progid:DXImageTransform.Microsoft.gradient(startColorstr=@{argb}, endColorstr=@{argb})';
+}
+
+@brand-primary:         #428bca;
+@brand-success:         #5cb85c;
+@brand-warning:         #f0ad4e;
+@brand-danger:          #d9534f;
+@brand-info:            #5bc0de;
+
+@brand-black:     #2c3039;
+@brand-dark:      #4c5566;
+@brand-light:     #ebeef5;
+@brand-default:       #aeb6cb;
+
+@body-bg:               #f3f5f9;
+@text-color:            #717171;
+@text-muted:            lighten(@text-color, 15%);
+// funnel graph
+
+
+.table-cell {
+  display: table-cell;
+}
+
+.table {
+  display: table;
+}
+
+.funnelgraph{
+  width: 100%;
+  height: 100%;
+  font-size: 13px;
+  font-weight: normal;
+  position: relative; 
+
+  // ul base
+  ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+  }
+
+  // li base
+  li{
+    margin: 0px;
+    padding: 0px;
+  }
+
+  // y axis
+  ul.y_axis{
+    width: 50px;
+    height: 100%;
+    position: absolute;
+    text-align: right;
+    bottom: 0px;
+    li {
+      width: 100%;
+      height: 20%;
+      font-weight: bold;
+      color: @text-color;
+      border-top: 1px solid transparent;
+      position: relative;
+      bottom: 0px;
+      vertical-align: bottom;
+    } 
+  }
+
+  // x axis
+  ul.x_axis{
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    bottom: 6px;
+    left: 90px;
+    text-align: center;
+    color: white;
+    li {
+      display: inline;
+      width: 90px;
+      float: left;
+      text-align: center;
+      span {
+        font-size: 11px;
+        font-weight: bold;
+        padding: 3px 4px;
+        color: @brand-info;
+        background-color: white;
+        border-radius: 40px;
+      }
+    }
+  }
+
+  .ul {
+
+  }
+
+  .li {
+    
+  }
+
+
+  // graph
+  .in-funnelgraph {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 60px;
+    right: 0;
+
+    // grid
+    ul.grid {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      bottom: 0px;
+      li {
+        width: 100%;
+        height: 20%;
+        float: left;
+        border-bottom: 3px dotted #e5e5e5;
+        margin-top: 0px;
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .bar {
+      height: 100%;
+      width: 100%;
+      // margin-left: 60px;
+
+      // 隙間
+      .space {
+        height: 100%;
+        position: relative;
+        &:hover {
+          .label {
+            bottom: 20px;
+            span{
+              padding: 10px;
+              font-size: 13px;
+            }
+          }
+        }
+        span.back {
+          height: 100%;
+          width: 50px;
+          position: absolute;
+          bottom: 0px;
+        }
+
+        // 色
+        svg {
+          position: absolute;
+          path{
+            fill: #65BDBD;
+            opacity: 0.2;
+          }
+        }
+        .label{
+          position: absolute;
+          width: 100%;
+          margin-bottom: 10px;
+          bottom: 0px;
+          text-align: center;
+          -webkit-transition: all 0.15s ease-in-out;
+          -moz-transition: all 0.15s ease-in-out;
+          -o-transition: all 0.15s ease-in-out;
+          -ms-transition: all 0.15s ease-in-out;
+          transition: all 0.15s ease-in-out;
+          span {
+            background-color: white;
+            border-radius: 2px;
+            color: @brand-info;
+            padding: 2px 3px;
+
+            -webkit-transition: all 0.15s ease-in-out;
+            -moz-transition: all 0.15s ease-in-out;
+            -o-transition: all 0.15s ease-in-out;
+            -ms-transition: all 0.15s ease-in-out;
+            transition: all 0.15s ease-in-out;
+          }
+        }
+      }
+
+      // bar
+      .in-bar {
+        height: 100%;
+        position: relative;
+        -webkit-transition: all 0.15s ease-in-out;
+        -moz-transition: all 0.15s ease-in-out;
+        -o-transition: all 0.15s ease-in-out;
+        -ms-transition: all 0.15s ease-in-out;
+        transition: all 0.15s ease-in-out;
+        &:hover {
+          span.back {
+            cursor: pointer;
+            background: @brand-danger;
+            span.x {
+              background: @brand-danger;
+              cursor: pointer;
+              bottom: 10px;
+              margin: 0px;
+            }
+            span.pop {
+              background: @brand-danger;
+              cursor: pointer;
+              top: -60px;
+              padding: 10px;
+              margin: 0px;
+            }
+          }
+        }
+        &.selected {
+          span.back {
+            cursor: pointer;
+            background: @brand-dark;
+            span.x {
+              background: @brand-dark;
+              cursor: pointer;
+              bottom: 10px;
+              margin: 0px;
+            }
+            span.pop {
+              background: @brand-dark;
+              cursor: pointer;
+              top: -60px;
+              padding: 10px;
+              margin: 0px;
+            }
+          }
+        }
+
+        // 背景
+        span.back {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          bottom: 0px;
+          text-align: center;
+          background: @brand-info;
+          border-top-left-radius: 2px;
+          border-top-right-radius: 2px;
+          text-align: center;
+
+          -webkit-transition: all 0.15s ease-in-out;
+          -moz-transition: all 0.15s ease-in-out;
+          -o-transition: all 0.15s ease-in-out;
+          -ms-transition: all 0.15s ease-in-out;
+          transition: all 0.15s ease-in-out;
+
+          // x軸
+          span.x {
+            margin-left: auto;
+            margin-right: auto;
+            position: absolute;
+            bottom: 6px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            line-height: 14px;
+            font-size: 11px;
+            .rgba(@brand-info, 0.8);
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            padding: 3px 0px;
+
+            -webkit-transition: all 0.15s ease-in-out;
+            -moz-transition: all 0.15s ease-in-out;
+            -o-transition: all 0.15s ease-in-out;
+            -ms-transition: all 0.15s ease-in-out;
+            transition: all 0.15s ease-in-out;
+          }
+        }
+
+        // pop
+        span.pop {
+          position: relative;
+          top: -50px;
+          padding: 3px 5px 3px 5px;
+          z-index: 100;
+          .rgba(@brand-info, 0.4);
+          color: white;
+          /* --- css3 --- */
+          border-radius: 3px;
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          /* --- transitions --- */
+          -webkit-transition: all 0.15s ease-in-out;
+          -moz-transition: all 0.15s ease-in-out;
+          -o-transition: all 0.15s ease-in-out;
+          -ms-transition: all 0.15s ease-in-out;
+          transition: all 0.15s ease-in-out;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+
+//- knockout mixins
+mixin with(val)
+  <!-- ko with: !{val} -->
+  block
+  <!-- /ko -->
+mixin if(val)
+  <!-- ko if: !{val} -->
+  block
+  <!-- /ko -->
+mixin each(val)
+  <!-- ko foreach: !{val} -->
+  block
+  <!-- /ko -->
+
+//- bootstrap
+link(rel='stylesheet', href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', type='text/css')
+//- google web fonts
+link(href='http://fonts.googleapis.com/css?family=Open+Sans:300', rel='stylesheet', type='text/css')
+//- animate.css
+link(rel='stylesheet', href='http:////cdnjs.cloudflare.com/ajax/libs/animate.css/3.0.0/animate.min.css', type='text/css')
+//- knockout
+script(type="text/javascript", src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js")
+
+//- components
+script(type="text/javascript", src="./build/build.js")
+link(rel='stylesheet', href='./build/build.css', type='text/css')
+
+//- styles
+style.
+  body {
+    padding: 0 100px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+  }
+  .canvas {
+    overflow: hidden;
+    padding-top: 80px;
+    position: absolute;
+    top: 120px;
+    left: 80px;
+    right: 80px;
+    bottom: 0
+  }
+
+//- funnel graph
+h1 funnel graph  
+div fork me from 
+  a(href="#") nashibao/funnel-graph
+.canvas
+  .funnelgraph
+    ul.y_axis
+      each i in '54321'
+        li #{i*20}&percnt;
+    .in-funnelgraph
+      ul.grid
+        each i in '54321'
+          li
+      .table.bar
+        +with('funnel')
+          +each('bars')
+            +if('$index() != 0')
+              .table-cell.space.animated.fadeInUp
+                svg(width="100%", height="100%", viewbox='0 0 100 100', preserveaspectratio='none')
+                  path.animation(d='M0,0 L100,40 L100,100 L0,100Z', data-bind="attr: {d: d()}")
+                span.label(data-bind="style: {height: val() + '%'}")
+                  span(data-bind="text: label() + '%'") 40%
+            .table-cell.in-bar.animated.fadeInUp(data-bind="click: $parent.toggle.bind($parent, $data), css: {'selected': $data == $parent.selected_bar()}")
+              span.back(style="height: 100%;", data-bind="style: {height: val() + '%'}")
+                span.pop(data-bind="text: val")
+                span.x(data-bind="text: title")
+
+//- js
+script(type="text/javascript", src="./index.js")

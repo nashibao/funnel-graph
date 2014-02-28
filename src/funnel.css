@@ -1,0 +1,243 @@
+.table-cell {
+  display: table-cell;
+}
+.table {
+  display: table;
+}
+.funnelgraph {
+  width: 100%;
+  height: 100%;
+  font-size: 13px;
+  font-weight: normal;
+  position: relative;
+}
+.funnelgraph ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+.funnelgraph li {
+  margin: 0px;
+  padding: 0px;
+}
+.funnelgraph ul.y_axis {
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  text-align: right;
+  bottom: 0px;
+}
+.funnelgraph ul.y_axis li {
+  width: 100%;
+  height: 20%;
+  font-weight: bold;
+  color: #717171;
+  border-top: 1px solid transparent;
+  position: relative;
+  bottom: 0px;
+  vertical-align: bottom;
+}
+.funnelgraph ul.x_axis {
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  bottom: 6px;
+  left: 90px;
+  text-align: center;
+  color: white;
+}
+.funnelgraph ul.x_axis li {
+  display: inline;
+  width: 90px;
+  float: left;
+  text-align: center;
+}
+.funnelgraph ul.x_axis li span {
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 4px;
+  color: #5bc0de;
+  background-color: white;
+  border-radius: 40px;
+}
+.funnelgraph .in-funnelgraph {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 60px;
+  right: 0;
+}
+.funnelgraph .in-funnelgraph ul.grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0px;
+}
+.funnelgraph .in-funnelgraph ul.grid li {
+  width: 100%;
+  height: 20%;
+  float: left;
+  border-bottom: 3px dotted #e5e5e5;
+  margin-top: 0px;
+}
+.funnelgraph .in-funnelgraph ul.grid li:last-child {
+  border-bottom: none;
+}
+.funnelgraph .in-funnelgraph .bar {
+  height: 100%;
+  width: 100%;
+}
+.funnelgraph .in-funnelgraph .bar .space {
+  height: 100%;
+  position: relative;
+}
+.funnelgraph .in-funnelgraph .bar .space:hover .label {
+  bottom: 20px;
+}
+.funnelgraph .in-funnelgraph .bar .space:hover .label span {
+  padding: 10px;
+  font-size: 13px;
+}
+.funnelgraph .in-funnelgraph .bar .space span.back {
+  height: 100%;
+  width: 50px;
+  position: absolute;
+  bottom: 0px;
+}
+.funnelgraph .in-funnelgraph .bar .space svg {
+  position: absolute;
+}
+.funnelgraph .in-funnelgraph .bar .space svg path {
+  fill: #65BDBD;
+  opacity: 0.2;
+}
+.funnelgraph .in-funnelgraph .bar .space .label {
+  position: absolute;
+  width: 100%;
+  margin-bottom: 10px;
+  bottom: 0px;
+  text-align: center;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  -ms-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+.funnelgraph .in-funnelgraph .bar .space .label span {
+  background-color: white;
+  border-radius: 2px;
+  color: #5bc0de;
+  padding: 2px 3px;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  -ms-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+.funnelgraph .in-funnelgraph .bar .in-bar {
+  height: 100%;
+  position: relative;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  -ms-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+.funnelgraph .in-funnelgraph .bar .in-bar:hover span.back {
+  cursor: pointer;
+  background: #d9534f;
+}
+.funnelgraph .in-funnelgraph .bar .in-bar:hover span.back span.x {
+  background: #d9534f;
+  cursor: pointer;
+  bottom: 10px;
+  margin: 0px;
+}
+.funnelgraph .in-funnelgraph .bar .in-bar:hover span.back span.pop {
+  background: #d9534f;
+  cursor: pointer;
+  top: -60px;
+  padding: 10px;
+  margin: 0px;
+}
+.funnelgraph .in-funnelgraph .bar .in-bar.selected span.back {
+  cursor: pointer;
+  background: #4c5566;
+}
+.funnelgraph .in-funnelgraph .bar .in-bar.selected span.back span.x {
+  background: #4c5566;
+  cursor: pointer;
+  bottom: 10px;
+  margin: 0px;
+}
+.funnelgraph .in-funnelgraph .bar .in-bar.selected span.back span.pop {
+  background: #4c5566;
+  cursor: pointer;
+  top: -60px;
+  padding: 10px;
+  margin: 0px;
+}
+.funnelgraph .in-funnelgraph .bar .in-bar span.back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  background: #5bc0de;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  text-align: center;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  -ms-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+.funnelgraph .in-funnelgraph .bar .in-bar span.back span.x {
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  line-height: 14px;
+  font-size: 11px;
+  background-color: #5bc0de;
+  background-color: rgba(91, 192, 222, 0.8);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc5bc0de, endColorstr=#cc5bc0de);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#cc5bc0de, endColorstr=#cc5bc0de);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  padding: 3px 0px;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  -ms-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+.funnelgraph .in-funnelgraph .bar .in-bar span.pop {
+  position: relative;
+  top: -50px;
+  padding: 3px 5px 3px 5px;
+  z-index: 100;
+  background-color: #5bc0de;
+  background-color: rgba(91, 192, 222, 0.4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#665bc0de, endColorstr=#665bc0de);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#665bc0de, endColorstr=#665bc0de);
+  color: white;
+  /* --- css3 --- */
+
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  /* --- transitions --- */
+
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  -ms-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  font-weight: bold;
+}
